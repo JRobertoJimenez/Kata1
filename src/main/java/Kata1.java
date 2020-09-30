@@ -1,6 +1,5 @@
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+import java.time.LocalDate;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,9 +13,7 @@ import java.util.GregorianCalendar;
  */
 public class Kata1 {
     public static void main(String[] args) {
-        Calendar date = GregorianCalendar.getInstance();
-        date.set(1980, 5, 20);
-        Person person = new Person("Luis Almeida", date);
+        Person person = new Person("Luis Almeida", LocalDate.of(1980, 5, 15));
         System.out.println(person.getName()+" "+person.getAge());
     }
 }
