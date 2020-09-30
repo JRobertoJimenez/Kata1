@@ -1,7 +1,10 @@
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.Period;
+import java.time.temporal.ChronoUnit;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,9 +18,8 @@ import java.util.Date;
  */
 public class Person {
     private final String name;
-    private final Date birthdate;
-
-    public Person(String name, Date birthdate) {
+    private final LocalDate birthdate;
+    public Person(String name, LocalDate birthdate) {
         this.name = name;
         this.birthdate = birthdate;
     }
@@ -28,12 +30,14 @@ public class Person {
         return name;
     }
 
-    public Date getBirthdate() {
+    public LocalDate getBirthdate() {
         return birthdate;
     }
     
     public int getAge(){
-        return (int) ((new Date().getTime()-birthdate.getTime())/31557600000L);
+        return Period.between(birthdate, LocalDate.now()).getYears();
         
     }
+    
+    
 }
